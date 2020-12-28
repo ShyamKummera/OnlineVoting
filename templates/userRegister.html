@@ -1,0 +1,103 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/voter.css' %}">
+
+    <title>User Registration Page</title>
+  </head>
+  <body>
+    <div class="container" >
+    <table align="right">
+        <tr>
+            <th>
+                <a href="{% url 'main' %}">Back to home</a>
+            </th>
+        </tr>
+    </table>
+        <div class="outer">
+      <form action="{% url 'userregcheck' %}" method="post">
+          {% csrf_token %}
+        <table class="middle">
+            <tr align="center">
+                <th colspan="2">
+                    <h4 class="heading">User Registration</h4>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    {{ form.name.label }}
+                </th>
+                <th>
+                    {{ form.name }}
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    {{ form.contact_no.label }}
+                </th>
+                <th>
+                    {{ form.contact_no }}
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    {{ form.email_id.label }}
+                </th>
+                <th>
+                    {{ form.email_id }}
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    {{ form.password.label }}
+                </th>
+                <th>
+                    {{ form.password }}
+                </th>
+            </tr>
+            <tr align="center">
+                <th colspan="2">
+                    <button type="submit" class="btn btn-info">Register</button>
+                </th>
+            </tr>
+            {% for x in messages %}
+              <tr align="center">
+                  <th colspan="2">
+
+                      <div class="alert alert-danger" role="alert">
+                            {{ x }}
+                        </div>
+                  </th>
+              </tr>
+            {% endfor %}
+          </table>
+      </form>
+      <table align="center" class="messagebtn">
+          <tr >
+                <th>
+                    <form action="{% url 'userLoginPage' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger btn-lg btn-block">Login Here</button>
+                    </form>
+                </th>
+                </tr>
+      </table>
+
+    </div>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
