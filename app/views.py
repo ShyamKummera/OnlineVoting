@@ -36,7 +36,7 @@ def loginCheck(request):
             # per_l = UserRegister.objects.filter(email_id=mail).values_list('idno')
             # print(per_v)
             # print(per_l)
-            # for c in per_l:
+            # for c in per_l:ggggg
             #     print(c)
             #     print(c[0])
             for z in per_v:
